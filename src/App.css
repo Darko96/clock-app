@@ -7,7 +7,7 @@
 :root {
   --very-dark: #000;
   --dark: #303030;
-  --white: #fff;
+  --white: rgb(255, 255, 255);
 }
 
 * {
@@ -25,6 +25,9 @@ img {
 }
 
 body {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
   background-color: var(--white);
 }
 
@@ -61,4 +64,140 @@ h5 {
   font-weight: 700;
   line-height: 2.8rem;
   letter-spacing: 0.3rem;
+}
+
+main {
+  height: 100vh;
+  color: var(--white);
+  background-repeat: no-repeat;
+}
+
+.container {
+  padding: 5.6rem 16.5rem 9.8rem 16.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.half {
+  height: 50%;
+}
+
+.quote-box {
+  max-width: 54rem;
+  text-wrap: wrap;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+
+  margin-bottom: 1.3rem;
+}
+
+.quote-container {
+  margin-bottom: 23.5rem;
+}
+
+.quote {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+  letter-spacing: 0.3rem;
+}
+
+.author {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  letter-spacing: 0.3rem;
+}
+
+.refresh-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.part-of-day {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+  letter-spacing: 0.4rem;
+
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.hours,
+.minutes {
+  font-size: 20rem;
+  font-weight: 700;
+  line-height: 20rem;
+  letter-spacing: -0.5rem;
+
+  margin-bottom: 1.6rem;
+}
+
+.zone {
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.country-box p {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  letter-spacing: -0.05rem;
+  text-transform: uppercase;
+}
+
+.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  letter-spacing: 0.5rem;
+
+  max-width: 14.6rem;
+  border: none;
+  border-radius: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+
+  cursor: pointer;
+
+  padding: 0.8rem 0.9rem 0.8rem 2.1rem;
+  background-color: var(--white);
+}
+
+.btn span {
+  color: var(--very-dark);
+  opacity: 0.5;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--dark);
+}
+
+.details-containere {
+  height: 50%;
+  background-color: rgba(255, 255, 255, 75%);
+  color: var(--dark);
+
+  padding: 7.4rem 0 7.4rem 16.5rem;
 }
