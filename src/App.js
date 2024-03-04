@@ -107,10 +107,10 @@ export default function App() {
   );
 }
 
-function Quote({ quote, author, onRefresh }) {
+function Quote({ quote, author, onRefresh, showDetails }) {
   return (
-    <div className="quote-container">
-      <div className="quote-box">
+    <div className={`quote-container ${showDetails && "change"}`}>
+      <div className={`quote-box`}>
         <p className="quote">"{quote}"</p>
         <button className="refresh-btn" onClick={onRefresh}>
           <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
@@ -130,9 +130,9 @@ function Quote({ quote, author, onRefresh }) {
   );
 }
 
-function Time({ hours, minutes, zone, city, countryCode }) {
+function Time({ hours, minutes, zone, city, countryCode, showDetails }) {
   return (
-    <div className="time-container">
+    <div className={`time-container ${showDetails && "proba"}`}>
       <div className="part-of-day">
         {hours >= 5 && hours < 12 && (
           <>
@@ -215,8 +215,6 @@ function Button({ onShowDetails }) {
 }
 
 function Details({ dayOfWeek, dayOfYear, weekNumber, timezone }) {
-  console.log(timezone);
-
   return (
     <div className="details-container">
       <div className="column-one">
@@ -228,7 +226,7 @@ function Details({ dayOfWeek, dayOfYear, weekNumber, timezone }) {
         <div className="column-one-box">
           <p className="heading">Day of the year</p>
           <p className="text">295</p>
-          <p className="text">{dayOfYear}</p>
+          {/* <p className="text">{dayOfYear}</p> */}
         </div>
       </div>
       <div className="column-two">
