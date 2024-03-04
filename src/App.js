@@ -109,7 +109,7 @@ export default function App() {
 
 function Quote({ quote, author, onRefresh, showDetails }) {
   return (
-    <div className={`quote-container ${showDetails && "change"}`}>
+    <div className="quote-container">
       <div className={`quote-box`}>
         <p className="quote">"{quote}"</p>
         <button className="refresh-btn" onClick={onRefresh}>

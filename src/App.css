@@ -367,7 +367,7 @@ main {
 
   .box {
     width: 100%;
-    margin-bottom: 4.8rem;
+    margin-bottom: 0;
   }
 
   .half {
@@ -376,7 +376,7 @@ main {
 
   .quote-container {
     max-width: 23.4rem;
-    height: 20%;
+    height: 10%;
   }
 
   .quote-box {
@@ -392,11 +392,7 @@ main {
   }
 
   .quote-container {
-    margin-bottom: 10rem;
-  }
-
-  .change {
-    display: none;
+    margin-bottom: 22rem;
   }
 
   .part-of-day {
