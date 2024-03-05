@@ -291,6 +291,7 @@ main {
 
   .box {
     width: 50%;
+    gap: 13rem;
   }
 
   .quote-box {
@@ -299,14 +300,14 @@ main {
 
     display: flex;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 0.5rem;
 
     margin-bottom: 1.3rem;
   }
 
   /* vratitit se */
   .quote-container {
-    margin-bottom: 23.5rem;
+    margin-bottom: 0;
   }
 
   .quote {
@@ -373,7 +374,7 @@ main {
 }
 
 /* MOBILE */
-@media (max-width: 425px) {
+@media (max-width: 580px) {
   .container {
     padding: 3.1rem 2.5rem 4rem 2.6rem;
     display: flex;
@@ -385,6 +386,7 @@ main {
   .box {
     width: 100%;
     margin-bottom: 0;
+    gap: 23rem;
   }
 
   .half {
