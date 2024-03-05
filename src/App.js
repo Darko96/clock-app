@@ -90,8 +90,13 @@ export default function App() {
       }}
     >
       <div className={`container ${showDetails && "half"}`}>
-        <div className="box">
-          <Quote quote={quote} author={author} onRefresh={handleRefresh} />
+        <div className={`box ${showDetails && "remove"}`}>
+          <Quote
+            quote={quote}
+            author={author}
+            onRefresh={handleRefresh}
+            showDetails={showDetails}
+          />
           <Time
             hours={hours}
             minutes={minutes}
@@ -118,7 +123,7 @@ export default function App() {
 
 function Quote({ quote, author, onRefresh, showDetails }) {
   return (
-    <div className="quote-container">
+    <div className={`quote-container ${showDetails && "gone"}`}>
       <div className={`quote-box`}>
         <p className="quote">"{quote}"</p>
         <button className="refresh-btn" onClick={onRefresh}>
