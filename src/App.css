@@ -135,6 +135,12 @@ main {
 
   display: flex;
   align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1.6rem;
 }
 
@@ -324,6 +330,12 @@ main {
 
     display: flex;
     align-items: center;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 1.6rem;
   }
 
@@ -485,5 +497,42 @@ main {
     width: 100%;
     gap: 1.6rem;
     margin-bottom: 0;
+  }
+
+  .current {
+    display: none;
+  }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  #day {
+    background-image: url("./assets/desktop/bg-image-daytime.jpg");
+  }
+
+  #night {
+    background-image: url("./assets/desktop/bg-image-nighttime.jpg");
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  #day {
+    background-image: url("./assets/tablet/bg-image-daytime.jpg");
+  }
+
+  #night {
+    background-image: url("./assets/tablet/bg-image-nighttime.jpg");
+  }
+}
+
+/* Mobile */
+@media (max-width: 425px) {
+  #day {
+    background-image: url("./assets/mobile/bg-image-daytime.jpg");
+  }
+
+  #night {
+    background-image: url("./assets/mobile/bg-image-nighttime.jpg");
   }
 }
