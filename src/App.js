@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import dayTimeImg from "./assets/desktop/bg-image-daytime.jpg";
-import nightTimeImg from "./assets/desktop/bg-image-nighttime.jpg";
 
 export default function App() {
   const [zone, setZone] = useState("CET");
