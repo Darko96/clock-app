@@ -78,6 +78,7 @@ main {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  height: 100vh;
 }
 
 .box {
@@ -99,8 +100,24 @@ main {
   margin-bottom: 1.3rem;
 }
 
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 13.5rem;
+}
+
 .quote-container {
-  margin-bottom: 23.5rem;
+  /* margin-bottom: 23.5rem; */
+}
+
+@media (max-width: 1440px) {
+  .quote-container {
+    margin-bottom: 13rem;
+  }
+
+  .box {
+    gap: 23.5rem;
+  }
 }
 
 .quote {
