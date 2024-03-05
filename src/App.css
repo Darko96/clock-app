@@ -394,7 +394,6 @@ main {
   .gone {
     display: none;
     visibility: hidden;
-    /* margin-bottom: 0; */
     background-color: red;
   }
 
@@ -406,6 +405,10 @@ main {
   .quote-container {
     max-width: 23.4rem;
     height: 0%;
+  }
+
+  .time-container {
+    margin-bottom: 2rem;
   }
 
   .quote-box {

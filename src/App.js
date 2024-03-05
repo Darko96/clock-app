@@ -103,6 +103,7 @@ export default function App() {
             zone={zone}
             city={city}
             countryCode={countryCode}
+            showDetails={showDetails}
           />
         </div>
         <div>
@@ -194,7 +195,7 @@ function Time({ hours, minutes, zone, city, countryCode, showDetails }) {
             Good evening
           </>
         )}
-        , it's currently
+        {!showDetails && `, it's currently`}
       </div>
       <div className="time">
         <p>
