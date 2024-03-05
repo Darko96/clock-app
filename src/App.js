@@ -59,15 +59,11 @@ export default function App() {
 
   useEffect(function () {
     async function fetchQuote() {
-      const response = await fetch(
-        "https://api.ipbase.com/v2/info?apikey=ipb_live_C3K8esT7n6VhZc2efcXb3nsIYIe5sS8luPHujIPS"
-      );
+      const response = await fetch("http://ip-api.com/json");
       const data = await response.json();
 
-      console.log(data);
-
-      setCity(data.data?.location.city.name);
-      setCountryCode(data.data?.location.country.alpha3);
+      setCity(data.regionName);
+      setCountryCode(data.country);
     }
     fetchQuote();
   }, []);
@@ -189,7 +185,7 @@ function Time({ hours, minutes, zone, city, countryCode, showDetails }) {
               <path
                 d="M22.157 17.366a.802.802 0 00-.891-.248 8.463 8.463 0 01-2.866.482c-4.853 0-8.8-3.949-8.8-8.8a8.773 8.773 0 013.856-7.274.801.801 0 00-.334-1.454A7.766 7.766 0 0012 0C5.382 0 0 5.382 0 12s5.382 12 12 12c4.2 0 8.02-2.134 10.218-5.709a.805.805 0 00-.061-.925z"
                 fill="#FFF"
-                fill-rule="nonzero"
+                fillRule="nonzero"
               />
             </svg>
             Good evening

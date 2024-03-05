@@ -1,9 +1,3 @@
-/* font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0; */
 :root {
   --very-dark: #000;
   --dark: #303030;
@@ -27,7 +21,6 @@ img {
 body {
   font-family: "Inter", sans-serif;
   font-style: normal;
-  font-variation-settings: "slnt" 0;
   background-color: var(--white);
 }
 
@@ -82,7 +75,9 @@ main {
 }
 
 .box {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 23.5rem;
 }
 
 .half {
@@ -98,26 +93,6 @@ main {
   gap: 1.5rem;
 
   margin-bottom: 1.3rem;
-}
-
-.box {
-  display: flex;
-  flex-direction: column;
-  gap: 13.5rem;
-}
-
-.quote-container {
-  /* margin-bottom: 23.5rem; */
-}
-
-@media (max-width: 1440px) {
-  .quote-container {
-    margin-bottom: 13rem;
-  }
-
-  .box {
-    gap: 23.5rem;
-  }
 }
 
 .quote {
@@ -291,13 +266,32 @@ main {
   .container {
     padding: 8rem 13rem 6.4rem 6.4rem;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
   }
 
+  .country-box {
+    margin-bottom: 3rem;
+  }
+
   .box {
-    width: 50%;
+    width: 80%;
     gap: 13rem;
+  }
+
+  .gone {
+    display: none;
+    visibility: hidden;
+  }
+
+  .half {
+    height: 60%;
+  }
+
+  .remove {
+    gap: 0;
+    display: block;
   }
 
   .quote-box {
@@ -402,7 +396,6 @@ main {
   .gone {
     display: none;
     visibility: hidden;
-    background-color: red;
   }
 
   .remove {
