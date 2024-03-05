@@ -224,13 +224,19 @@ main {
 .details-container {
   height: 50%;
   background-color: rgba(255, 255, 255, 75%);
-  color: var(--dark);
-
   padding: 7.4rem 16.5rem 7.4rem 16.5rem;
-
   display: flex;
   gap: 9.4rem;
-  /* justify-content: space-between; */
+}
+
+.white-bcground {
+  background-color: rgba(255, 255, 255, 75%);
+  color: var(--dark);
+}
+
+.dark-bcground {
+  background-color: rgba(0, 0, 0, 75%);
+  color: var(--white);
 }
 
 .column-one {
@@ -286,7 +292,7 @@ main {
     padding: 8rem 13rem 6.4rem 6.4rem;
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .box {

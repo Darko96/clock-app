@@ -229,9 +229,13 @@ function Button({ onShowDetails }) {
   );
 }
 
-function Details({ dayOfWeek, dayOfYear, weekNumber, timezone }) {
+function Details({ dayOfWeek, dayOfYear, weekNumber, timezone, hours }) {
   return (
-    <div className="details-container">
+    <div
+      className={`details-container ${
+        hours >= 5 && hours < 18 ? "white-bcground" : "dark-bcground"
+      }`}
+    >
       <div className="column-one">
         <div className="column-one-box">
           <p className="heading">Current timezone</p>
