@@ -60,9 +60,11 @@ export default function App() {
   useEffect(function () {
     async function fetchQuote() {
       const response = await fetch(
-        "https://api.ipbase.com/v2/info?apikey=ipb_live_NLECg8WexKMtdePWQDhEnXurAe13VKykNDk7IHI9"
+        "https://api.ipbase.com/v2/info?apikey=ipb_live_C3K8esT7n6VhZc2efcXb3nsIYIe5sS8luPHujIPS"
       );
       const data = await response.json();
+
+      console.log(data);
 
       setCity(data.data?.location.city.name);
       setCountryCode(data.data?.location.country.alpha3);
@@ -102,7 +104,14 @@ export default function App() {
           <Button onShowDetails={handleShowDetails} />
         </div>
       </div>
-      {showDetails && <Details />}
+      {showDetails && (
+        <Details
+          dayOfWeek={dayOfWeek}
+          dayOfYear={dayOfYear}
+          weekNumber={weekNumber}
+          timezone={timezone}
+        />
+      )}
     </main>
   );
 }
@@ -220,25 +229,21 @@ function Details({ dayOfWeek, dayOfYear, weekNumber, timezone }) {
       <div className="column-one">
         <div className="column-one-box">
           <p className="heading">Current timezone</p>
-          <p className="text">Europe/London</p>
-          {/* <p className="text">{timezone}</p> */}
+          <p className="text">{timezone}</p>
         </div>
         <div className="column-one-box">
           <p className="heading">Day of the year</p>
-          <p className="text">295</p>
-          {/* <p className="text">{dayOfYear}</p> */}
+          <p className="text">{dayOfYear}</p>
         </div>
       </div>
       <div className="column-two">
         <div className="column-two-box">
           <p className="heading">Day of the week</p>
-          <p className="text">1</p>
-          {/* <p className="text">{dayOfWeek}</p> */}
+          <p className="text">{dayOfWeek}</p>
         </div>
         <div className="column-two-box">
           <p className="heading">Week number</p>
-          <p className="text">42</p>
-          {/* <p className="text">{weekNumber}</p> */}
+          <p className="text">{weekNumber}</p>
         </div>
       </div>
     </div>
