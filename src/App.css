@@ -269,6 +269,10 @@ main {
 
 /* TABLET */
 @media (max-width: 768px) {
+  /* main {
+    height: 100vh;
+  } */
+
   .container {
     padding: 8rem 13rem 6.4rem 6.4rem;
     display: flex;
@@ -359,8 +363,14 @@ main {
   }
 
   .details-container {
-    padding: 11.9rem 16.6rem 11.9rem 6.4rem;
+    padding: 5.9rem 16.6rem 11.9rem 6.4rem;
     gap: 8rem;
+    height: 40%;
+  }
+
+  .dark-bcground {
+    background-color: rgba(0, 0, 0, 75%);
+    color: var(--white);
   }
 
   .column-one {
