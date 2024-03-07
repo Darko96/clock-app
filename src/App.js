@@ -13,8 +13,8 @@ export default function App() {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
-  const [city, setCity] = useState("Belgrade");
-  const [countryCode, setCountryCode] = useState("Serbia");
+  // const [city, setCity] = useState("Belgrade");
+  // const [countryCode, setCountryCode] = useState("Serbia");
 
   const [showDetails, setShowDetails] = useState(false);
   const [shouldRefresh, setShouldRefresh] = useState(false);
@@ -55,16 +55,16 @@ export default function App() {
     [shouldRefresh]
   );
 
-  useEffect(function () {
-    async function fetchQuote() {
-      const response = await fetch("http://ip-api.com/json");
-      const data = await response.json();
+  // useEffect(function () {
+  //   async function fetchQuote() {
+  //     const response = await fetch("https://ip-api.com/json");
+  //     const data = await response.json();
 
-      setCity(data.regionName);
-      setCountryCode(data.country);
-    }
-    fetchQuote();
-  }, []);
+  //     setCity(data.regionName);
+  //     setCountryCode(data.country);
+  //   }
+  //   fetchQuote();
+  // }, []);
 
   function handleShowDetails() {
     setShowDetails((prevState) => !prevState);
@@ -88,9 +88,10 @@ export default function App() {
             hours={hours}
             minutes={minutes}
             zone={zone}
-            city={city}
-            countryCode={countryCode}
+            // city={city}
+            // countryCode={countryCode}
             showDetails={showDetails}
+            timezone={timezone}
           />
         </div>
         <div>
@@ -132,7 +133,7 @@ function Quote({ quote, author, onRefresh, showDetails }) {
   );
 }
 
-function Time({ hours, minutes, zone, city, countryCode, showDetails }) {
+function Time({ hours, minutes, zone, timezone, showDetails }) {
   return (
     <div className={`time-container ${showDetails && "proba"}`}>
       <div className="part-of-day">
@@ -194,9 +195,7 @@ function Time({ hours, minutes, zone, city, countryCode, showDetails }) {
         </p>
       </div>
       <div className="country-box">
-        <p>
-          in {city}, {countryCode}
-        </p>
+        <p>in {timezone}</p>
       </div>
     </div>
   );
