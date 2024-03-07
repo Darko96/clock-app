@@ -4,7 +4,7 @@ import "./App.css";
 export default function App() {
   const [zone, setZone] = useState("CET");
   const [hours, setHours] = useState(9);
-  const [minutes, setMinutes] = useState(11);
+  const [minutes, setMinutes] = useState(0);
   const [dayOfWeek, setDayOfWeek] = useState(1);
   const [dayOfYear, setDayOfYear] = useState(64);
   const [weekNumber, setWeekNumber] = useState(10);
@@ -19,22 +19,36 @@ export default function App() {
   const [showDetails, setShowDetails] = useState(false);
   const [shouldRefresh, setShouldRefresh] = useState(false);
 
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      if (now.getMinutes() !== currentTime.getMinutes()) {
+        setCurrentTime(now);
+        setMinutes(currentTime.getMinutes());
+        setHours(currentTime.getHours());
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [currentTime]);
+
   useEffect(function () {
     async function fetchTime() {
       const response = await fetch("http://worldtimeapi.org/api/ip");
       const data = await response.json();
       const localTIme = new Date(data.utc_datetime);
-      const getHours = localTIme.getHours();
-      const getMinutes = localTIme.getMinutes();
 
       setZone(data.abbreviation);
-      setHours(getHours);
-      setMinutes(getMinutes);
+      setHours(localTIme.getHours());
+      setMinutes(localTIme.getMinutes());
       setDayOfWeek(data.day_of_week);
       setDayOfYear(data.day_of_year);
       setWeekNumber(data.week_number);
       setTimezone(data.timezone);
     }
+
     fetchTime();
   }, []);
 
@@ -87,6 +101,7 @@ export default function App() {
             showDetails={showDetails}
           />
           <Time
+            currentTime={currentTime}
             hours={hours}
             minutes={minutes}
             zone={zone}
@@ -135,7 +150,15 @@ function Quote({ quote, author, onRefresh, showDetails }) {
   );
 }
 
-function Time({ hours, minutes, zone, city, countryCode, showDetails }) {
+function Time({
+  hours,
+  minutes,
+  zone,
+  city,
+  countryCode,
+  showDetails,
+  currentTime,
+}) {
   return (
     <div className={`time-container ${showDetails && "proba"}`}>
       <div className="part-of-day">
@@ -189,9 +212,16 @@ function Time({ hours, minutes, zone, city, countryCode, showDetails }) {
       </div>
       <div className="time">
         <p>
-          <span className="hours">{hours < 10 ? `0${hours}` : hours}:</span>
+          <span className="hours">
+            {currentTime.getHours() < 10
+              ? `0${currentTime.getHours()}`
+              : currentTime.getHours()}
+            :
+          </span>
           <span className="minutes">
-            {minutes < 10 ? `0${minutes}` : minutes}
+            {minutes < 10
+              ? `0${currentTime.getMinutes()}`
+              : currentTime.getMinutes()}
           </span>
           <span className="zone"> {zone}</span>
         </p>
