@@ -57,7 +57,7 @@ export default function App() {
 
   useEffect(function () {
     async function fetchQuote() {
-      const response = await fetch("http://ip-api.com/json");
+      const response = await fetch("https://ip-api.com/json");
       const data = await response.json();
 
       setCity(data.regionName);
