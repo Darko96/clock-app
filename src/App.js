@@ -13,8 +13,8 @@ export default function App() {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
 
-  // const [city, setCity] = useState("Belgrade");
-  // const [countryCode, setCountryCode] = useState("Serbia");
+  const [city, setCity] = useState("Belgrade");
+  const [countryCode, setCountryCode] = useState("Serbia");
 
   const [showDetails, setShowDetails] = useState(false);
   const [shouldRefresh, setShouldRefresh] = useState(false);
@@ -55,16 +55,18 @@ export default function App() {
     [shouldRefresh]
   );
 
-  // useEffect(function () {
-  //   async function fetchQuote() {
-  //     const response = await fetch("https://ip-api.com/json");
-  //     const data = await response.json();
+  useEffect(function () {
+    async function fetchQuote() {
+      const response = await fetch(
+        "https://api.ipgeolocation.io/ipgeo?apiKey=a7f757f0241b4d9cad9d3c5e9810d008"
+      );
+      const data = await response.json();
 
-  //     setCity(data.regionName);
-  //     setCountryCode(data.country);
-  //   }
-  //   fetchQuote();
-  // }, []);
+      setCity(data.city);
+      setCountryCode(data.country_name);
+    }
+    fetchQuote();
+  }, []);
 
   function handleShowDetails() {
     setShowDetails((prevState) => !prevState);
@@ -88,8 +90,8 @@ export default function App() {
             hours={hours}
             minutes={minutes}
             zone={zone}
-            // city={city}
-            // countryCode={countryCode}
+            city={city}
+            countryCode={countryCode}
             showDetails={showDetails}
             timezone={timezone}
           />
@@ -133,7 +135,7 @@ function Quote({ quote, author, onRefresh, showDetails }) {
   );
 }
 
-function Time({ hours, minutes, zone, timezone, showDetails }) {
+function Time({ hours, minutes, zone, city, countryCode, showDetails }) {
   return (
     <div className={`time-container ${showDetails && "proba"}`}>
       <div className="part-of-day">
@@ -195,7 +197,9 @@ function Time({ hours, minutes, zone, timezone, showDetails }) {
         </p>
       </div>
       <div className="country-box">
-        <p>in {timezone}</p>
+        <p>
+          in {countryCode}, {city}
+        </p>
       </div>
     </div>
   );
