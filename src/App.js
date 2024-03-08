@@ -121,6 +121,7 @@ export default function App() {
           dayOfYear={dayOfYear}
           weekNumber={weekNumber}
           timezone={timezone}
+          hours={hours}
         />
       )}
     </main>
